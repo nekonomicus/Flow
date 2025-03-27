@@ -1,0 +1,62 @@
+/* flowchart-app/src/index.css */
+@import 'reactflow/dist/style.css'; /* Import React Flow base styles */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply m-0 font-sans antialiased bg-gray-50;
+}
+
+/* Custom styles for React Flow nodes */
+.react-flow__node {
+  @apply bg-white border border-blue-400 rounded shadow-md text-center text-sm p-2;
+  min-width: 150px; /* Ensure nodes have some minimum width */
+}
+
+/* Style for 'Outcome' nodes based on className */
+.react-flow__node.outcome-node {
+  @apply bg-outcome-fill border-2 border-outcome-border;
+}
+
+/* Style for 'Start' and 'End' nodes (Circle) */
+.react-flow__node.circle-node {
+    @apply rounded-full !p-4 text-white bg-blue-600 border-blue-800;
+    min-width: 80px; /* Adjust size as needed */
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for 'Decision' node (Diamond) - using transform for a simple diamond */
+/* A more robust diamond might use SVG or clip-path */
+.react-flow__node.diamond-node {
+    @apply bg-orange-100 border-orange-500;
+    transform: rotate(45deg);
+    min-width: 100px;
+    min-height: 100px;
+}
+.react-flow__node.diamond-node .label-container {
+    transform: rotate(-45deg); /* Counter-rotate the text */
+    white-space: normal; /* Allow text wrapping */
+    max-width: 120px; /* Constrain width */
+}
+
+
+/* Style for edge labels */
+.react-flow__edge-textbg {
+    @apply fill-white opacity-90;
+     /* Little bigger */
+    rx: 4;
+    ry: 4;
+}
+.react-flow__edge-text {
+    @apply fill-gray-700 text-xs font-semibold;
+}
+
+/* Style dashed edges */
+.react-flow__edge.dashed-edge path {
+  stroke-dasharray: 5;
+}
